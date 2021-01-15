@@ -1,6 +1,6 @@
 from flask import Flask,render_template
 from flask import request
-import model
+import model #导入控制层代码
 
 app = Flask(__name__)
 # 控制层

@@ -1,4 +1,4 @@
-import getdatautils
+import getdatautils #导入数据层代码
 
 # 得到东沙地图上的流量计数据
 def dongsha_map(time):
