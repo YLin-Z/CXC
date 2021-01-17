@@ -23,7 +23,12 @@ def dongshapage():
         else:
             time = request.form.get('time')
         mapdata = model.dongsha_map(time)
-    return render_template("dongsha.html",data=mapdata)
+    if mapdata['error']==1:
+        return '''<h1>查不到数据</h1>
+        <h2>数据未更新或输入时间有误</h2>
+        '''
+    else:
+        return render_template("dongsha.html",data=mapdata)
 
 @app.route('/abc')
 def helloworld():
