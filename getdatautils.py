@@ -33,7 +33,7 @@ def nanjiaocun_shiliuliang(time):
         data = {"error": 1}
     else:
         sheet = pd.read_excel("D:/CXCDATA/shaluo_nanjiao.xls", sheet_name=1)
-        row = sheet[sheet['时间'] == time]#刚好日期那列上面写着南漖村
+        row = sheet[sheet['时间'] == time]
         if row.empty == 1:
             data = {"error": 1}
         else:
