@@ -30,21 +30,26 @@ def dongshapage():
     else:
         return render_template("dongsha.html",data=mapdata)
 
-@app.route('/abc')
-def helloworld():
-    id = request.values.get("id")
-    return f'''<form action ="/login">
-            账号：<input name = "name" value = "{id}"><br>
-            密码：<input name = "pwd">
-            <input type = "submit">
-            </form>
-            '''
 
-@app.route('/login')
-def login():
-    name = request.values.get("name")
-    pwd = request.values.get("pwd")
-    return f'name = {name} ,pwd = {pwd}'
+# 访问南漖村页面的路由转发
+@app.route('/nanjiaocun',methods=['POST','GET'])
+def nanjiaocunpage():
+    if request.method == 'GET':
+        time = request.args.get('time')     #得到连接中的时间信息
+        mapdata = model.nanjiaocun_map(time)    #由时间得地图上的流量数据
+    if request.method == 'POST':
+        if request.form.get('time')=="dateandtimepoint":#当传回的时间是这个串时说明是地图右边的表单，需要日期和小时拼接成time
+            time = request.form.get('date')+" "+request.form.get('timepoint')
+        else:
+            time = request.form.get('time')
+        mapdata = model.nanjiaocun_map(time)
+    if mapdata['error']==1:
+        return '''<h1>查不到数据</h1>
+        <h2>数据未更新或输入时间有误</h2>
+        '''
+    else:
+        return render_template("nanjiaocun.html",data=mapdata)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

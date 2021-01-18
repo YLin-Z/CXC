@@ -30,3 +30,14 @@ def dongsha_map(time):
     else:
         mapdata = {'error':1}
     return mapdata
+
+
+#得到漖村地图上的数据
+def nanjiaocun_map(time):
+    mapdatanjc = getdatautils.nanjiaocun_shiliuliang(time)     #从EXCEL中得到南漖各流量计时流量
+    if mapdatanjc['error']==0:
+        #如果没有查询错误就将各个地区的数据合到同一个字典变量中传回给页面
+        mapdata = mapdatanjc
+    else:
+        mapdata = {'error':1}
+    return mapdata
