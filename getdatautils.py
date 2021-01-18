@@ -10,12 +10,12 @@ def getdongsha_shiliuliang(time):
         if row.empty == 1:
             data = {"error":1}
         else:
-            sll3195 = format(row.iloc[-1][4],'.2f')
-            sll3194 = format(row.iloc[-1][8],'.2f')
-            sll3196 = format(row.iloc[-1][14],'.2f')
-            sll3198 = format(row.iloc[-1][17],'.2f')
-            sll91830953 = format(row.iloc[-1][20],'.2f')
-            sll69175303 = format(row.iloc[-1][25],'.2f')
+            sll3195 = abs(float(format(row.iloc[-1][4],'.2f')))
+            sll3194 = abs(float(format(row.iloc[-1][8],'.2f')))
+            sll3196 = abs(float(format(row.iloc[-1][14],'.2f')))
+            sll3198 = abs(float(format(row.iloc[-1][17],'.2f')))
+            sll91830953 = abs(float(format(row.iloc[-1][20],'.2f')))
+            sll69175303 = abs(float(format(row.iloc[-1][25],'.2f')))
             data = {'time':time,
                     'sll3195':sll3195,
                     'sll3194':sll3194,
@@ -38,10 +38,10 @@ def nanjiaocun_shiliuliang(time):
             data = {"error": 1}
         else:
             print(row)
-            sll91830730 = format(row.iloc[-1]["Unnamed: 2"], '.2f')
-            sll91830729 = format(row.iloc[-1]["Unnamed: 6"], '.2f')
-            sll69983071 = format(row.iloc[-1]["Unnamed: 10"], '.2f')
-            sunsllofnanjiaocun = format(row.iloc[-1]["南漖村总和"], '.2f')
+            sll91830730 = abs(float(format(row.iloc[-1]["Unnamed: 2"], '.2f')))
+            sll91830729 = abs(float(format(row.iloc[-1]["Unnamed: 6"], '.2f')))
+            sll69983071 = abs(float(format(row.iloc[-1]["Unnamed: 10"], '.2f')))
+            sunsllofnanjiaocun = abs(float(format(row.iloc[-1]["南漖村总和"], '.2f')))
             data = {'time': time,
                     'sll91830730': sll91830730,
                     'sll91830729': sll91830729,

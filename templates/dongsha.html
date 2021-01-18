@@ -68,9 +68,20 @@
         </form>
     </div>
 <!--    饼图-->
-    <div id="l2" STYLE="width: 1270px;height: auto;top: 1500px;left: 0%;">
-        <div class="txt"><h2>东沙流入-东沙流出-南漖=</h2></div>
-        <div class="num"><h1>123456</h1></div>
+    <div id="l2" STYLE="width: 1270px;height: auto;top: 820px;left: 0%;">
+{#        <div class="txt"><h2>东沙流入-东沙流出-南漖=</h2></div>#}
+{#        <div class="num"><h1>123456</h1></div>#}
+        <div><span style="color: red">东沙流入</span>
+            -<span style="color: #0a53be">东沙流出</span>
+            -<span style="color: #ffcd39">南漖</span>
+            =<span style="color: #d3d6d8">未统计水量</span>
+        </div>
+{#        注意原始数据是负的要变号!!!!!!!!!!!!!!!!!#}
+        <div><span style="color: red">{{data['sll3198']}}</span>
+             -<span style="color: #0a53be">({{data['sll69175303']}}+{{data['sll3194']}}+{{data['sll3195']}})</span>
+            -<span style="color: #ffcd39">({{data['sll91830729']}}+{{data['sll91830730']}})</span>
+            =<span style="color: #d3d6d8">{{data['uncount']}}</span>
+        </div>
     </div>
 <!--    表格-->
     <div id="c2" style="width: 453px;height: auto;top:1300%;left: 0px;">
