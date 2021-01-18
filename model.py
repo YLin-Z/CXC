@@ -10,8 +10,23 @@ def dongsha_map(time):
         mapdata.update(mapdatanjc)
         #计算未统计水量
         #注意原始数据是负的要变号!!!!!!!!!!!!!!!!!
-        uncount = mapdata['sll3198']-(mapdata['sll69175303']+mapdata['sll3194']+mapdata['sll3195'])-(mapdata['sll91830729']+mapdata['sll91830730'])
-        mapdata.update({'uncount':uncount})
+        #进入东沙的水量
+        dongsha_in = mapdata['sll3198']
+        #流出东沙的水量
+        dongsha_out = mapdata['sll69175303']+mapdata['sll3194']+mapdata['sll3195']+mapdata['sll3196']
+        #流入南漖的水量
+        nanjiao_in = mapdata['sll91830729']+mapdata['sll91830730']
+        #流入电排站的水量（不过东沙单独计算）
+        dianpaizhan_in =mapdata['sll91830953']
+        #未统计到的水量
+        uncount = dongsha_in-dongsha_out-nanjiao_in
+        #取两位小数
+        uncount = format(uncount,'.2f')
+        mapdata.update({'uncount':uncount,
+                        'dongsha_in':dongsha_in,
+                        'dongsha_out':dongsha_out,
+                        'nanjiao_in':nanjiao_in,
+                        'dianpaizhan_in':dianpaizhan_in})
     else:
         mapdata = {'error':1}
     return mapdata

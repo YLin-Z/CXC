@@ -18,9 +18,6 @@
     </div>
 <!--    地图流量计-->
     <div id="l1" style="width: 1270px;height: 710.750px;top: 12%;left: 0%;">
-<!--        <div>-->
-<!--             <img style="z-index: 1;display: inline" src="../static/img/dongsha.jpg">-->
-<!--        </div>-->
         <div id="liuliangji" style="position: absolute;left: 60%;top: 10%;z-index: 999;color: red;font-size: large;">{{data['sll91830953']}}流入</div>
         <div id="liuliangji" style="position: absolute;left: 55%;top: 20%;z-index: 999;color: red;font-size: large;">{{data['sll3198']}}流入</div>
         <div id="liuliangji" style="position: absolute;left: 35%;top: 30%;z-index: 999;color: red;font-size: large;">{{data['sll69175303']}}流出</div>">
@@ -67,19 +64,27 @@
                 <input type="submit" value="查询">
         </form>
     </div>
-<!--    饼图-->
+<!-- 计算公式和饼图-->
     <div id="l2" STYLE="width: 1270px;height: auto;top: 820px;left: 0%;">
 {#        <div class="txt"><h2>东沙流入-东沙流出-南漖=</h2></div>#}
 {#        <div class="num"><h1>123456</h1></div>#}
         <div><span style="color: red">东沙流入</span>
             -<span style="color: #0a53be">东沙流出</span>
-            -<span style="color: #ffcd39">南漖</span>
+            -<span style="color: #ffcd39">流入南漖</span>
+{#            -<span style="color: #1BDE04">流入电排站</span>#}
             =<span style="color: #d3d6d8">未统计水量</span>
         </div>
 {#        注意原始数据是负的要变号!!!!!!!!!!!!!!!!!#}
         <div><span style="color: red">{{data['sll3198']}}</span>
-             -<span style="color: #0a53be">({{data['sll69175303']}}+{{data['sll3194']}}+{{data['sll3195']}})</span>
+             -<span style="color: #0a53be">({{data['sll69175303']}}+{{data['sll3194']}}+{{data['sll3196']}}+{{data['sll3195']}})</span>
             -<span style="color: #ffcd39">({{data['sll91830729']}}+{{data['sll91830730']}})</span>
+{#            -<span style="color: #1BDE04">({{data['sll91830953']}})</span>#}
+            =<span style="color: #d3d6d8">{{data['uncount']}}</span>
+        </div>
+        <div><span style="color: red">{{data['dongsha_in']}}</span>
+            -<span style="color: #0a53be">{{data['dongsha_out']}}</span>
+            -<span style="color: #ffcd39">{{data['nanjiao_in']}}</span>
+{#            -<span style="color: #1BDE04">{{data['dianpaizhan_in']}}</span>#}
             =<span style="color: #d3d6d8">{{data['uncount']}}</span>
         </div>
     </div>
