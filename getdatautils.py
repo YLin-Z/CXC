@@ -28,6 +28,30 @@ def getdongsha_shiliuliang(time):
             del sheet
     return data
 
+def shaluocun_shiliuliang(time):
+    if time == ' 0:00':  # 在右边表单那里没选好
+        data = {"error": 1}
+    else:
+        sheet = pd.read_excel("D:/CXCDATA/shaluo_nanjiao.xls", sheet_name=0)
+        row = sheet[sheet['时间'] == time]
+        if row.empty == 1:
+            data = {"error": 1}
+        else:
+            sll91830456 = abs(float(format(row.iloc[-1]["Unnamed: 3"], '.2f')))
+            sll91830454 = abs(float(format(row.iloc[-1]["Unnamed: 7"], '.2f')))
+            sll91830455 = abs(float(format(row.iloc[-1]["Unnamed: 11"], '.2f')))
+            sunsllofshaluocun = abs(float(format(row.iloc[-1]["沙洛村时流量"], '.2f')))
+            data = {'time': time,
+                    'sll91830456': sll91830456,
+                    'sll91830454': sll91830454,
+                    'sll91830455': sll91830455,
+                    'sunsllofshaluocun': sunsllofshaluocun,
+                    'error': 0}
+            # print(data)
+            del sheet
+    return data
+
+
 def nanjiaocun_shiliuliang(time):
     if time == ' 0:00':  # 在右边表单那里没选好
         data = {"error": 1}

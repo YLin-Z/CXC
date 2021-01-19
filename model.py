@@ -41,3 +41,12 @@ def nanjiaocun_map(time):
     else:
         mapdata = {'error':1}
     return mapdata
+
+def shaluocun_map(time):
+    mapdatansl = getdatautils.shaluocun_shiliuliang(time)     #从EXCEL中得到南漖各流量计时流量
+    if mapdatansl['error']==0:
+        #如果没有查询错误就将各个地区的数据合到同一个字典变量中传回给页面
+        mapdata = mapdatansl
+    else:
+        mapdata = {'error':1}
+    return mapdata

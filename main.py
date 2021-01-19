@@ -51,6 +51,24 @@ def nanjiaocunpage():
         return render_template("nanjiaocun.html",data=mapdata)
 
 
+@app.route('/shaluocun',methods=['POST','GET'])
+def shaluocunpage():
+    if request.method == 'GET':
+        time = request.args.get('time')     #得到连接中的时间信息
+        mapdata = model.shaluocun_map(time)    #由时间得地图上的流量数据
+    if request.method == 'POST':
+        if request.form.get('time')=="dateandtimepoint":#当传回的时间是这个串时说明是地图右边的表单，需要日期和小时拼接成time
+            time = request.form.get('date')+" "+request.form.get('timepoint')
+        else:
+            time = request.form.get('time')
+        mapdata = model.shaluocun_map(time)
+    if mapdata['error']==1:
+        return '''<h1>查不到数据</h1>
+        <h2>数据未更新或输入时间有误</h2>
+        '''
+    else:
+        return render_template("shaluocun.html",data=mapdata)
+
 if __name__ == '__main__':
     app.run(debug=True)
 
