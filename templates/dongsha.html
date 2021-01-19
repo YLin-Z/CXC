@@ -7,6 +7,7 @@
     <link href="../static/js/bootstrap.min.js" type="text/css" rel="stylesheet">
     <link href="../static/css/main.css" rel="stylesheet"/>
     <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/echarts.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -33,7 +34,7 @@
 <!--    时间查询-->
     <div id="c1" style="width: 215px;height: auto;top: 12%;left: 1280px;">
         <form action = "/dongsha" method="post" role="form" class="form-horizontal">
-                <input type="date" name="date" class="form-control">
+                <input type="date" name="date" class="form-control" value="{{data['time'][0:10].replace("/", "-") }}">
                 <select class="form-control" name="timepoint">
                     <option value="0:00">0:00</option>
                     <option value="1:00">1:00</option>
@@ -89,8 +90,73 @@
         </div>
     </div>
 <!--    表格-->
-    <div id="c2" style="width: 453px;height: auto;top:1300%;left: 0px;">
-        c2
+    <div id="c2" style="width: 1270px;height:500px;top:900px;left: 0px;">
+        <script type="text/javascript">
+            var myChart = echarts.init(document.getElementById('c2'));
+            option = {
+                backgroundColor: '#2c343c',
+
+                title: {
+                    text: 'Customized Pie',
+                    left: 'center',
+                    top: 20,
+                    textStyle: {
+                        color: '#ccc'
+                    }
+                },
+
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b} : {c} ({d}%)'
+                },
+
+                visualMap: {
+                    show: false,
+                    min: 80,
+                    max: 600,
+                    inRange: {
+                        colorLightness: [0, 1]
+                    }
+                },
+                series: [
+                    {
+                        name: '水量分布',
+                        type: 'pie',
+                        radius: '55%',
+                        center: ['50%', '50%'],
+                        data: [
+                            {value: {{data['dongsha_out']}}, name: '流出'},
+                            {value: {{data['nanjiao_in']}}, name: '南漖'},
+                            {value: {{data['uncount']}}, name: '未统计'}
+                        ].sort(function (a, b) { return a.value - b.value; }),
+                        roseType: 'radius',
+                        label: {
+                            color: 'rgba(255, 255, 255, 0.3)'
+                        },
+                        labelLine: {
+                            lineStyle: {
+                                color: 'rgba(255, 255, 255, 0.3)'
+                            },
+                            smooth: 0.2,
+                            length: 10,
+                            length2: 20
+                        },
+                        itemStyle: {
+                            color: '#c23531',
+                            shadowBlur: 200,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        },
+
+                        animationType: 'scale',
+                        animationEasing: 'elasticOut',
+                        animationDelay: function (idx) {
+                            return Math.random() * 200;
+                        }
+                    }
+                ]
+            };
+            myChart.setOption(option);
+        </script>
     </div>
 <!--    <div id="r1">右1</div>-->
 <!--    <div id="r2">右2</div>-->

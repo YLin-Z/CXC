@@ -37,7 +37,6 @@ def nanjiaocun_shiliuliang(time):
         if row.empty == 1:
             data = {"error": 1}
         else:
-            print(row)
             sll91830730 = abs(float(format(row.iloc[-1]["Unnamed: 2"], '.2f')))
             sll91830729 = abs(float(format(row.iloc[-1]["Unnamed: 6"], '.2f')))
             sll69983071 = abs(float(format(row.iloc[-1]["Unnamed: 10"], '.2f')))
