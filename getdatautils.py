@@ -1,4 +1,5 @@
 import pandas as pd
+# 读东沙表格
 def getdongsha_shiliuliang(time):
     if time == ' 0:00':#在右边表单那里没选好
         data = {"error":1}
@@ -28,6 +29,7 @@ def getdongsha_shiliuliang(time):
             del sheet
     return data
 
+# 读沙洛表格
 def shaluocun_shiliuliang(time):
     if time == ' 0:00':  # 在右边表单那里没选好
         data = {"error": 1}
@@ -52,6 +54,7 @@ def shaluocun_shiliuliang(time):
     return data
 
 
+# 读南漖表格
 def nanjiaocun_shiliuliang(time):
     if time == ' 0:00':  # 在右边表单那里没选好
         data = {"error": 1}

@@ -36,7 +36,11 @@
         <div id="liuliangji" style="position: absolute;left: 25%;top: 95%;z-index: 999;color: red;font-size: large;">{{data['sll69983071']}}入村</div>
         <div id="liuliangji" style="position: absolute;left: 35%;top: 85%;z-index: 999;color: red;font-size: large;"><a href="/nanjiaocun?time={{data['time']}}">南漖村</a></div>
 {#        沙洛#}
-
+        <div id="liuliangji" style="position: absolute;left: 50%;top: 73%;z-index: 999;color: red;font-size: large;">{{data['sll91830456']}}？1</div>
+        <div id="liuliangji" style="position: absolute;left: 57%;top: 73%;z-index: 999;color: red;font-size: large;">{{data['sll91830454']}}？2</div>
+        <div id="liuliangji" style="position: absolute;left: 45%;top: 95%;z-index: 999;color: red;font-size: large;">{{data['sll91830455']}}？3</div>
+        <div id="liuliangji" style="position: absolute;left: 35%;top: 85%;z-index: 999;color: red;font-size: large;"><a href="/shaluocun?time={{data['time']}}">沙洛村</a></div>
+{#        地图#}
         <div id="liuliangji" style="position: absolute;left: 0px;top: 0px"><img style="z-index: 1;display: inline" src="../static/img/dongsha.jpg"></div>
     </div>
 <!--    时间查询-->
@@ -80,6 +84,7 @@
         <div><span style="color: red">东沙流入</span>
             -<span style="color: #0a53be">东沙流出</span>
             -<span style="color: #ffcd39">流入南漖</span>
+            -<span style="color: #0AB100">流入沙洛</span>
 {#            -<span style="color: #1BDE04">流入电排站</span>#}
             =<span style="color: #d3d6d8">未统计水量</span>
         </div>
@@ -87,12 +92,14 @@
         <div><span style="color: red">{{data['sll3198']}}</span>
              -<span style="color: #0a53be">({{data['sll69175303']}}+{{data['sll3194']}}+{{data['sll3196']}}+{{data['sll3195']}})</span>
             -<span style="color: #ffcd39">({{data['sll91830729']}}+{{data['sll91830730']}})</span>
+            -<span style="color: #0AB100">({{data['sll91830456']}}+{{data['sll91830454']}}+{{data['sll91830455']}})</span>
 {#            -<span style="color: #1BDE04">({{data['sll91830953']}})</span>#}
             =<span style="color: #d3d6d8">{{data['uncount']}}</span>
         </div>
         <div><span style="color: red">{{data['dongsha_in']}}</span>
             -<span style="color: #0a53be">{{data['dongsha_out']}}</span>
             -<span style="color: #ffcd39">{{data['nanjiao_in']}}</span>
+            -<span style="color: #0AB100">{{data['shaluo_in']}}</span>
 {#            -<span style="color: #1BDE04">{{data['dianpaizhan_in']}}</span>#}
             =<span style="color: #d3d6d8">{{data['uncount']}}</span>
         </div>
@@ -135,6 +142,7 @@
                         data: [
                             {value: {{data['dongsha_out']}}, name: '流出'},
                             {value: {{data['nanjiao_in']}}, name: '南漖'},
+                            {value: {{data['shaluo_in']}}, name: '沙洛'},
                             {value: {{data['uncount']}}, name: '未统计'}
                         ].sort(function (a, b) { return a.value - b.value; }),
                         roseType: 'radius',
