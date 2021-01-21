@@ -5,7 +5,7 @@ def dongsha_map(time):
     mapdatads = getdatautils.getdongsha_shiliuliang(time)     #从EXCEL中得到东沙各流量计时流量
     mapdatanjc = getdatautils.nanjiaocun_shiliuliang(time)     #从EXCEL中得到南漖各流量计时流量
     mapdatansl = getdatautils.shaluocun_shiliuliang(time)     #从EXCEL中得到沙洛各流量计时流量
-    if mapdatads['error']==0 and mapdatanjc['error']==0:
+    if mapdatads['error']==0 and mapdatanjc['error']==0 and mapdatansl['error']==0:
         #如果没有查询错误就将各个地区的数据合到同一个字典变量中传回给页面
         mapdata = mapdatads.copy()
         mapdata.update(mapdatanjc)

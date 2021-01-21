@@ -26,6 +26,9 @@ def dongshapage():
     if mapdata['error']==1:
         return '''<h1>查不到数据</h1>
         <h2>数据未更新或输入时间有误</h2>
+        <a href="/" style="text-decoration:none">
+                <span class="btn btn-primary">返回主页</span>
+            </a>
         '''
     else:
         return render_template("dongsha.html",data=mapdata)
@@ -46,6 +49,9 @@ def nanjiaocunpage():
     if mapdata['error']==1:
         return '''<h1>查不到数据</h1>
         <h2>数据未更新或输入时间有误</h2>
+        <a href="/" style="text-decoration:none">
+                <span class="btn btn-primary">返回主页</span>
+            </a>
         '''
     else:
         return render_template("nanjiaocun.html",data=mapdata)
@@ -65,6 +71,9 @@ def shaluocunpage():
     if mapdata['error']==1:
         return '''<h1>查不到数据</h1>
         <h2>数据未更新或输入时间有误</h2>
+        <a href="/" style="text-decoration:none">
+                <span class="btn btn-primary">返回主页</span>
+            </a>
         '''
     else:
         return render_template("shaluocun.html",data=mapdata)
