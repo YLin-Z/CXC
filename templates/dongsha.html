@@ -24,21 +24,21 @@
 <!--    地图流量计-->
     <div id="l1" style="width: 1270px;height: 710.750px;top: 12%;left: 0%;">
 {#        东沙#}
-        <div id="liuliangji" style="position: absolute;left: 60%;top: 10%;z-index: 999;color: red;font-size: large;">{{data['sll91830953']}}流入</div>
-        <div id="liuliangji" style="position: absolute;left: 55%;top: 20%;z-index: 999;color: red;font-size: large;">{{data['sll3198']}}流入</div>
-        <div id="liuliangji" style="position: absolute;left: 35%;top: 30%;z-index: 999;color: red;font-size: large;">{{data['sll69175303']}}流出</div>">
-        <div id="liuliangji" style="position: absolute;left: 34%;top: 50%;z-index: 999;color: red;font-size: large;">{{data['sll3196']}}流出</div>
-        <div id="liuliangji" style="position: absolute;left: 1%;top: 50%;z-index: 999;color: red;font-size: large;">{{data['sll3194']}}流出</div>
-        <div id="liuliangji" style="position: absolute;left: 2%;top: 54%;z-index: 999;color: red;font-size: large;">{{data['sll3195']}}流出</div>
+        <div id="liuliangji" style="position: absolute;left: 60%;top: 10%;z-index: 999;color: red;font-size: large;">{{data['sll91830953']}}\+流入</div>
+        <div id="liuliangji" style="position: absolute;left: 55%;top: 20%;z-index: 999;color: red;font-size: large;">{{data['sll3198']}}\+流入</div>
+        <div id="liuliangji" style="position: absolute;left: 35%;top: 30%;z-index: 999;color: red;font-size: large;">{{data['sll69175303']}}\+流出</div>">
+        <div id="liuliangji" style="position: absolute;left: 34%;top: 50%;z-index: 999;color: red;font-size: large;">{{data['sll3196']}}\+流出</div>
+        <div id="liuliangji" style="position: absolute;left: 1%;top: 50%;z-index: 999;color: red;font-size: large;">{{data['sll3194']}}\+流出</div>
+        <div id="liuliangji" style="position: absolute;left: 2%;top: 54%;z-index: 999;color: red;font-size: large;">{{data['sll3195']}}\-流出</div>
 {#        南漖#}
-        <div id="liuliangji" style="position: absolute;left: 30%;top: 73%;z-index: 999;color: red;font-size: large;">{{data['sll91830730']}}入村</div>
-        <div id="liuliangji" style="position: absolute;left: 37%;top: 73%;z-index: 999;color: red;font-size: large;">{{data['sll91830729']}}入村</div>
-        <div id="liuliangji" style="position: absolute;left: 25%;top: 95%;z-index: 999;color: red;font-size: large;">{{data['sll69983071']}}入村</div>
+        <div id="liuliangji" style="position: absolute;left: 28%;top: 73%;z-index: 999;color: red;font-size: large;">{{data['sll91830730']}}\+入村</div>
+        <div id="liuliangji" style="position: absolute;left: 37%;top: 73%;z-index: 999;color: red;font-size: large;">{{data['sll91830729']}}\+入村</div>
+        <div id="liuliangji" style="position: absolute;left: 25%;top: 95%;z-index: 999;color: red;font-size: large;">{{data['sll69983071']}}\+入村</div>
         <div id="liuliangji" style="position: absolute;left: 35%;top: 85%;z-index: 999;color: red;font-size: large;"><a href="/nanjiaocun?time={{data['time']}}">南漖村</a></div>
 {#        沙洛#}
-        <div id="liuliangji" style="position: absolute;left: 60%;top: 51%;z-index: 999;color: red;font-size: large;">{{data['sll91830456']}}入村</div>
-        <div id="liuliangji" style="position: absolute;left: 73%;top: 44%;z-index: 999;color: red;font-size: large;">{{data['sll91830454']}}入村</div>
-        <div id="liuliangji" style="position: absolute;left: 60%;top: 66%;z-index: 999;color: red;font-size: large;">{{data['sll91830455']}}入村</div>
+        <div id="liuliangji" style="position: absolute;left: 60%;top: 51%;z-index: 999;color: red;font-size: large;">{{data['sll91830456']}}\+入村</div>
+        <div id="liuliangji" style="position: absolute;left: 73%;top: 44%;z-index: 999;color: red;font-size: large;">{{data['sll91830454']}}\+入村</div>
+        <div id="liuliangji" style="position: absolute;left: 60%;top: 66%;z-index: 999;color: red;font-size: large;">{{data['sll91830455']}}\+入村</div>
         <div id="liuliangji" style="position: absolute;left: 68%;top: 55%;z-index: 999;color: red;font-size: large;"><a href="/shaluocun?time={{data['time']}}">沙洛村</a></div>
 {#        地图#}
         <div id="liuliangji" style="position: absolute;left: 0px;top: 0px"><img style="z-index: 1;display: inline" src="../static/img/dongsha.jpg"></div>
@@ -90,7 +90,7 @@
         </div>
 {#        注意原始数据是负的要变号!!!!!!!!!!!!!!!!!#}
         <div><span style="color: red">{{data['sll3198']}}</span>
-             -<span style="color: #0a53be">({{data['sll69175303']}}+{{data['sll3194']}}+{{data['sll3196']}}+{{data['sll3195']}})</span>
+             -<span style="color: #0a53be">({{data['sll69175303']}}+{{data['sll3194']}}+{{data['sll3196']}}-({{data['sll3195']}}))</span>
             -<span style="color: #ffcd39">({{data['sll91830729']}}+{{data['sll91830730']}})</span>
             -<span style="color: #0AB100">({{data['sll91830456']}}+{{data['sll91830454']}}+{{data['sll91830455']}})</span>
 {#            -<span style="color: #1BDE04">({{data['sll91830953']}})</span>#}

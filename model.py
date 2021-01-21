@@ -15,7 +15,7 @@ def dongsha_map(time):
         #进入东沙的水量
         dongsha_in = mapdata['sll3198']
         #流出东沙的水量
-        dongsha_out = mapdata['sll69175303']+mapdata['sll3194']+mapdata['sll3195']+mapdata['sll3196']
+        dongsha_out = mapdata['sll69175303']+mapdata['sll3194']-mapdata['sll3195']+mapdata['sll3196']
         #流入南漖的水量
         nanjiao_in = mapdata['sll91830729']+mapdata['sll91830730']
         #流入沙洛的水量
