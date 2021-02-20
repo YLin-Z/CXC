@@ -2,7 +2,7 @@
 <html lang="cn">
 <head>
     <meta charset="UTF-8">
-    <title>东沙</title>
+    <title>西塱</title>
     <link href="../static/css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="../static/js/bootstrap.min.js" type="text/css" rel="stylesheet">
     <link href="../static/css/main.css" rel="stylesheet"/>
@@ -11,8 +11,8 @@
 </head>
 <body>
     <div class="container">
-    <div id="title">东沙</div>
-    <form action = "/dongsha" method="post">
+    <div id="title">西塱</div>
+    <form action = "/xilang" method="post">
         <div id="time"><input type="text" name="time" value="{{data['time']}}">
             <input class="btn btn-primary" type="submit" value="查询">
             <a href="/" style="text-decoration:none">
@@ -23,29 +23,19 @@
     </div>
 <!--    地图流量计-->
     <div id="l1" style="width: 1270px;height: 710.750px;top: 12%;left: 0%;">
-{#        东沙#}
-        <div id="liuliangji" style="position: absolute;left: 60%;top: 10%;z-index: 999;color: red;font-size: large;">{{data['sll91830953']}}\+流入</div>
-        <div id="liuliangji" style="position: absolute;left: 55%;top: 20%;z-index: 999;color: red;font-size: large;">{{data['sll3198']}}\+流入</div>
-        <div id="liuliangji" style="position: absolute;left: 35%;top: 30%;z-index: 999;color: red;font-size: large;">{{data['sll69175303']}}\+流出</div>">
-        <div id="liuliangji" style="position: absolute;left: 34%;top: 50%;z-index: 999;color: red;font-size: large;">{{data['sll3196']}}\+流出</div>
-        <div id="liuliangji" style="position: absolute;left: 1%;top: 50%;z-index: 999;color: red;font-size: large;">{{data['sll3194']}}\+流出</div>
-        <div id="liuliangji" style="position: absolute;left: 2%;top: 54%;z-index: 999;color: red;font-size: large;">{{data['sll3195']}}\-流出</div>
-{#        南漖#}
-        <div id="liuliangji" style="position: absolute;left: 28%;top: 73%;z-index: 999;color: red;font-size: large;">{{data['sll91830730']}}\+入村</div>
-        <div id="liuliangji" style="position: absolute;left: 37%;top: 73%;z-index: 999;color: red;font-size: large;">{{data['sll91830729']}}\+入村</div>
-        <div id="liuliangji" style="position: absolute;left: 25%;top: 95%;z-index: 999;color: red;font-size: large;">{{data['sll69983071']}}\+入村</div>
-        <div id="liuliangji" style="position: absolute;left: 35%;top: 85%;z-index: 999;color: red;font-size: large;"><a href="/nanjiaocun?time={{data['time']}}">南漖村</a></div>
-{#        沙洛#}
-        <div id="liuliangji" style="position: absolute;left: 60%;top: 51%;z-index: 999;color: red;font-size: large;">{{data['sll91830456']}}\+入村</div>
-        <div id="liuliangji" style="position: absolute;left: 73%;top: 44%;z-index: 999;color: red;font-size: large;">{{data['sll91830454']}}\+入村</div>
-        <div id="liuliangji" style="position: absolute;left: 60%;top: 66%;z-index: 999;color: red;font-size: large;">{{data['sll91830455']}}\+入村</div>
-        <div id="liuliangji" style="position: absolute;left: 68%;top: 55%;z-index: 999;color: red;font-size: large;"><a href="/shaluocun?time={{data['time']}}">沙洛村</a></div>
+{#        西塱#}
+        <div id="liuliangji" style="position: absolute;left: 10%;top: 37%;z-index: 999;color: red;font-size: large;">{{data['sll691895227334']}}\+流入</div>
+        <div id="liuliangji" style="position: absolute;left: 12%;top: 31%;z-index: 999;color: red;font-size: large;">{{data['sll691897037300']}}\+流入</div>
+        <div id="liuliangji" style="position: absolute;left: 17%;top: 23%;z-index: 999;color: red;font-size: large;">{{data['sll691895227336']}}\+流出</div>">
+        <div id="liuliangji" style="position: absolute;left: 19%;top: 17%;z-index: 999;color: red;font-size: large;">{{data['sll671812700107']}}\+流出</div>
+        <div id="liuliangji" style="position: absolute;left: 90%;top: 24%;z-index: 999;color: red;font-size: large;">{{data['sll69175303']}}\+流出</div>
+        <div id="liuliangji" style="position: absolute;left: 70%;top: 75%;z-index: 999;color: red;font-size: large;">{{data['sll3196']}}\+流出</div>
 {#        地图#}
-        <div id="liuliangji" style="position: absolute;left: 0px;top: 0px"><img style="z-index: 1;display: inline" src="../static/img/dongsha.jpg"></div>
+        <div id="liuliangji" style="position: absolute;left: 0px;top: 0px"><img style="z-index: 1;display: inline" src="../static/img/xilang.jpg"></div>
     </div>
 <!--    时间查询-->
     <div id="c1" style="width: 215px;height: auto;top: 12%;left: 1280px;">
-        <form action = "/dongsha" method="post" role="form" class="form-horizontal">
+        <form action = "/xilang" method="post" role="form" class="form-horizontal">
                 <input type="date" name="date" class="form-control" value="{{data['time'][0:10].replace("/", "-") }}">
                 <select class="form-control" name="timepoint">
                     <option value="0:00">0:00</option>
@@ -77,103 +67,7 @@
                 <input class="btn btn-primary" type="submit" value="查询">
         </form>
     </div>
-<!-- 计算公式和饼图-->
-    <div id="l2" STYLE="width: 1270px;height: auto;top: 820px;left: 0%;">
-{#        <div class="txt"><h2>东沙流入-东沙流出-南漖=</h2></div>#}
-{#        <div class="num"><h1>123456</h1></div>#}
-        <div><span style="color: red">东沙流入</span>
-            -<span style="color: #0a53be">东沙流出</span>
-            -<span style="color: #ffcd39">流入南漖</span>
-            -<span style="color: #0AB100">流入沙洛</span>
-{#            -<span style="color: #1BDE04">流入电排站</span>#}
-            =<span style="color: #d3d6d8">未统计水量</span>
-        </div>
-{#        注意原始数据是负的要变号!!!!!!!!!!!!!!!!!#}
-        <div><span style="color: red">{{data['sll3198']}}</span>
-             -<span style="color: #0a53be">({{data['sll69175303']}}+{{data['sll3194']}}+{{data['sll3196']}}-({{data['sll3195']}}))</span>
-            -<span style="color: #ffcd39">({{data['sll91830729']}}+{{data['sll91830730']}})</span>
-            -<span style="color: #0AB100">({{data['sll91830456']}}+{{data['sll91830454']}}+{{data['sll91830455']}})</span>
-{#            -<span style="color: #1BDE04">({{data['sll91830953']}})</span>#}
-            =<span style="color: #d3d6d8">{{data['uncount']}}</span>
-        </div>
-        <div><span style="color: red">{{data['dongsha_in']}}</span>
-            -<span style="color: #0a53be">{{data['dongsha_out']}}</span>
-            -<span style="color: #ffcd39">{{data['nanjiao_in']}}</span>
-            -<span style="color: #0AB100">{{data['shaluo_in']}}</span>
-{#            -<span style="color: #1BDE04">{{data['dianpaizhan_in']}}</span>#}
-            =<span style="color: #d3d6d8">{{data['uncount']}}</span>
-        </div>
-    </div>
-<!--    表格-->
-    <div id="c2" style="width: 1270px;height:500px;top:900px;left: 0px;">
-        <script type="text/javascript">
-            var myChart = echarts.init(document.getElementById('c2'));
-            option = {
-                backgroundColor: '#2c343c',
 
-                title: {
-                    text: 'Customized Pie',
-                    left: 'center',
-                    top: 20,
-                    textStyle: {
-                        color: '#ccc'
-                    }
-                },
-
-                tooltip: {
-                    trigger: 'item',
-                    formatter: '{a} <br/>{b} : {c} ({d}%)'
-                },
-
-                visualMap: {
-                    show: false,
-                    min: 80,
-                    max: 600,
-                    inRange: {
-                        colorLightness: [0, 1]
-                    }
-                },
-                series: [
-                    {
-                        name: '水量分布',
-                        type: 'pie',
-                        radius: '55%',
-                        center: ['50%', '50%'],
-                        data: [
-                            {value: {{data['dongsha_out']}}, name: '流出'},
-                            {value: {{data['nanjiao_in']}}, name: '南漖'},
-                            {value: {{data['shaluo_in']}}, name: '沙洛'},
-                            {value: {{data['uncount']}}, name: '未统计'}
-                        ].sort(function (a, b) { return a.value - b.value; }),
-                        roseType: 'radius',
-                        label: {
-                            color: 'rgba(255, 255, 255, 0.3)'
-                        },
-                        labelLine: {
-                            lineStyle: {
-                                color: 'rgba(255, 255, 255, 0.3)'
-                            },
-                            smooth: 0.2,
-                            length: 10,
-                            length2: 20
-                        },
-                        itemStyle: {
-                            color: '#c23531',
-                            shadowBlur: 200,
-                            shadowColor: 'rgba(0, 0, 0, 0.5)'
-                        },
-
-                        animationType: 'scale',
-                        animationEasing: 'elasticOut',
-                        animationDelay: function (idx) {
-                            return Math.random() * 200;
-                        }
-                    }
-                ]
-            };
-            myChart.setOption(option);
-        </script>
-    </div>
 <!--    <div id="r1">右1</div>-->
 <!--    <div id="r2">右2</div>-->
     <script></script>
