@@ -37,7 +37,7 @@ def dongsha_map(time):
     return mapdata
 
 
-#得到漖村地图上的数据
+#得到南漖村地图上的数据
 def nanjiaocun_map(time):
     mapdatanjc = getdatautils.nanjiaocun_shiliuliang(time)     #从EXCEL中得到南漖各流量计时流量
     if mapdatanjc['error']==0:
@@ -47,11 +47,23 @@ def nanjiaocun_map(time):
         mapdata = {'error':1}
     return mapdata
 
+
+#得到沙洛村地图上的数据
 def shaluocun_map(time):
-    mapdatansl = getdatautils.shaluocun_shiliuliang(time)     #从EXCEL中得到南漖各流量计时流量
-    if mapdatansl['error']==0:
+    mapdatasl = getdatautils.shaluocun_shiliuliang(time)     #从EXCEL中得到沙洛各流量计时流量
+    if mapdatasl['error']==0:
         #如果没有查询错误就将各个地区的数据合到同一个字典变量中传回给页面
-        mapdata = mapdatansl
+        mapdata = mapdatasl
     else:
         mapdata = {'error':1}
+    return mapdata
+
+
+def xilang_map(time):
+    mapdataxl = getdatautils.getxilang_shiliuliang(time)     #从EXCEL中得到西塱各流量计时流量
+    if mapdataxl['error'] == 0:
+        # 如果没有查询错误就将各个地区的数据合到同一个字典变量中传回给页面
+        mapdata = mapdataxl
+    else:
+        mapdata = {'error': 1}
     return mapdata

@@ -41,8 +41,8 @@ def shaluocun_shiliuliang(time):
         else:
             sll91830456 = float(format(row.iloc[-1]["Unnamed: 3"], '.2f'))
             sll91830454 = float(format(row.iloc[-1]["Unnamed: 7"], '.2f'))
-            sll91830455 = float(format(row.iloc[-1]["Unnamed: 11"], '.2f'))
-            sunsllofshaluocun = float(format(row.iloc[-1]["沙洛村时流量"], '.2f'))
+            sll91830455 = float(format(row.iloc[-1]["Unnamed: 13"], '.2f'))
+            sunsllofshaluocun = sll91830455+sll91830456+sll91830456
             data = {'time': time,
                     'sll91830456': sll91830456,
                     'sll91830454': sll91830454,
@@ -74,6 +74,36 @@ def nanjiaocun_shiliuliang(time):
                     'sll69983071': sll69983071,
                     'sunsllofnanjiaocun': sunsllofnanjiaocun,
                     'error': 0}
+            # print(data)
+            del sheet
+    return data
+
+
+## 读西塱表格
+def getxilang_shiliuliang(time):
+    if time == ' 0:00':#在右边表单那里没选好
+        data = {"error":1}
+    else:
+        sheet = pd.read_excel("D:/CXCDATA/xilang.xls",sheet_name = 0)
+        row = sheet[sheet['时间']==time]
+        # 时流量 = data.iloc[-1]['东沙时流量']
+        if row.empty == 1:
+            data = {"error":1}
+        else:
+            sll691895227334 = float(format(row.iloc[-1]["Unnamed: 3"],'.2f'))
+            sll691897037300 = float(format(row.iloc[-1]["Unnamed: 6"],'.2f'))
+            sll691895227336 = float(format(row.iloc[-1]["Unnamed: 9"],'.2f'))
+            sll671812700107 = float(format(row.iloc[-1]["Unnamed: 12"],'.2f'))
+            sll69175303 = float(format(row.iloc[-1]["Unnamed: 18"],'.2f'))
+            sll3196 = float(format(row.iloc[-1]["Unnamed: 21"],'.2f'))
+            data = {'time':time,
+                    'sll691895227334':sll691895227334,
+                    'sll691897037300':sll691897037300,
+                    'sll691895227336':sll691895227336,
+                    'sll671812700107':sll671812700107,
+                    'sll69175303':sll69175303,
+                    'sll3196':sll3196,
+                    'error':0}
             # print(data)
             del sheet
     return data
