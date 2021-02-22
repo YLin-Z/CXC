@@ -85,6 +85,7 @@
             -<span style="color: #0a53be">东沙流出</span>
             -<span style="color: #ffcd39">流入南漖</span>
             -<span style="color: #0AB100">流入沙洛</span>
+            -<span style="color: #red">大用户远传表</span>
 {#            -<span style="color: #1BDE04">流入电排站</span>#}
             =<span style="color: #d3d6d8">未统计水量</span>
         </div>
@@ -93,6 +94,7 @@
              -<span style="color: #0a53be">({{data['sll69175303']}}+{{data['sll3194']}}+{{data['sll3196']}}-({{data['sll3195']}}))</span>
             -<span style="color: #ffcd39">({{data['sll91830729']}}+{{data['sll91830730']}})</span>
             -<span style="color: #0AB100">({{data['sll91830456']}}+{{data['sll91830454']}}+{{data['sll91830455']}})</span>
+            -<span style="color: #red">({{data['yibanyuanchuanbiaosll']}})</span>
 {#            -<span style="color: #1BDE04">({{data['sll91830953']}})</span>#}
             =<span style="color: #d3d6d8">{{data['uncount']}}</span>
         </div>
@@ -100,6 +102,7 @@
             -<span style="color: #0a53be">{{data['dongsha_out']}}</span>
             -<span style="color: #ffcd39">{{data['nanjiao_in']}}</span>
             -<span style="color: #0AB100">{{data['shaluo_in']}}</span>
+            -<span style="color: #red">{{data['yibanyuanchuanbiaosll']}}</span>
 {#            -<span style="color: #1BDE04">{{data['dianpaizhan_in']}}</span>#}
             =<span style="color: #d3d6d8">{{data['uncount']}}</span>
         </div>
@@ -143,6 +146,7 @@
                             {value: {{data['dongsha_out']}}, name: '流出'},
                             {value: {{data['nanjiao_in']}}, name: '南漖'},
                             {value: {{data['shaluo_in']}}, name: '沙洛'},
+                            {value: {{data['yibanyuanchuanbiaosll']}}, name: '大用户远传'},
                             {value: {{data['uncount']}}, name: '未统计'}
                         ].sort(function (a, b) { return a.value - b.value; }),
                         roseType: 'radius',

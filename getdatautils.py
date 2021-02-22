@@ -26,7 +26,7 @@ def getdongsha_shiliuliang(time):
                     'sll69175303':sll69175303,
                     'error':0}
             # print(data)
-            del sheet
+        del sheet
     return data
 
 # 读沙洛表格
@@ -50,7 +50,7 @@ def shaluocun_shiliuliang(time):
                     'sunsllofshaluocun': sunsllofshaluocun,
                     'error': 0}
             # print(data)
-            del sheet
+        del sheet
     return data
 
 
@@ -75,7 +75,7 @@ def nanjiaocun_shiliuliang(time):
                     'sunsllofnanjiaocun': sunsllofnanjiaocun,
                     'error': 0}
             # print(data)
-            del sheet
+        del sheet
     return data
 
 
@@ -105,5 +105,24 @@ def getxilang_shiliuliang(time):
                     'sll3196':sll3196,
                     'error':0}
             # print(data)
-            del sheet
+        del sheet
+    return data
+
+
+#得到一般远传表的时流量和
+def getyibanyuanchuanbiao_shiliuliang(time):
+    if time == ' 0:00':  # 在右边表单那里没选好
+        data = {"error": 1}
+    else:
+        sheet = pd.read_excel("D:/CXCDATA/yibanyuanchuanbiao.xls", sheet_name=0)
+        row = sheet[sheet['时间'] == time]
+        if row.empty == 1:
+            data = {"error": 1}
+        else:
+            yibanyuanchuanbiaosll = float(format(row.iloc[-1]["时流量"], '.2f'))
+            data = {'time': time,
+                    'yibanyuanchuanbiaosll': yibanyuanchuanbiaosll,
+                    'error': 0}
+            # print(data)
+        del sheet
     return data
