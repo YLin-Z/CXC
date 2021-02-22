@@ -64,11 +64,23 @@ def shaluocun_map(time):
     return mapdata
 
 
+#得到西塱村地图上的数据
 def xilang_map(time):
     mapdataxl = getdatautils.getxilang_shiliuliang(time)     #从EXCEL中得到西塱各流量计时流量
     if mapdataxl['error'] == 0:
         # 如果没有查询错误就将各个地区的数据合到同一个字典变量中传回给页面
         mapdata = mapdataxl
+    else:
+        mapdata = {'error': 1}
+    return mapdata
+
+
+#得到一般大用户远传地图上的数据
+def yibanyuanchuanbiao_map(time):
+    mapdataybycb = getdatautils.getyibanyuanchuanbiao_shiliuliang(time)     #从EXCEL中得到西塱各流量计时流量
+    if mapdataybycb['error'] == 0:
+        # 如果没有查询错误就将各个地区的数据合到同一个字典变量中传回给页面
+        mapdata = mapdataybycb
     else:
         mapdata = {'error': 1}
     return mapdata

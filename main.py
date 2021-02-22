@@ -46,7 +46,7 @@ def nanjiaocunpage():
     else:
         return render_template("nanjiaocun.html",data=mapdata)
 
-
+#沙洛的页面转发
 @app.route('/shaluocun',methods=['POST','GET'])
 def shaluocunpage():
     if request.method == 'GET':
@@ -62,6 +62,25 @@ def shaluocunpage():
         return render_template("errorpage.html")
     else:
         return render_template("shaluocun.html",data=mapdata)
+
+
+# 访问大用户远传表页面的路由转发
+@app.route('/yibanyuanchuanbiao',methods=['POST','GET'])
+def yibanyuanchuanbiaopage():
+    if request.method == 'GET':
+        time = request.args.get('time')     #得到连接中的时间信息
+        mapdata = model.yibanyuanchuanbiao_map(time)    #由时间得地图上的流量数据
+    if request.method == 'POST':
+        if request.form.get('time')=="dateandtimepoint":#当传回的时间是这个串时说明是地图右边的表单，需要日期和小时拼接成time
+            time = request.form.get('date')+" "+request.form.get('timepoint')
+        else:
+            time = request.form.get('time')
+        mapdata = model.yibanyuanchuanbiao_map(time)
+    if mapdata['error']==1:
+        return render_template("errorpage.html")
+    else:
+        return render_template("yibanyuanchuanbiao.html",data=mapdata)
+
 
 
 # 访问西塱页面的路由转发
