@@ -126,3 +126,21 @@ def getyibanyuanchuanbiao_shiliuliang(time):
             # print(data)
         del sheet
     return data
+
+
+def getyibanyuanchuanbiao_hedong(time):
+    if time == ' 0:00':  # 在右边表单那里没选好
+        data = {"error": 1}
+    else:
+        sheet = pd.read_excel("D:/CXCDATA/hedong.xls", sheet_name=0)
+        row = sheet[sheet['时间'] == time]
+        if row.empty == 1:
+            data = {"error": 1}
+        else:
+            hedong = float(format(row.iloc[-1]["时流量"], '.2f'))
+            data = {'time': time,
+                    'hedong': hedong,
+                    'error': 0}
+            # print(data)
+        del sheet
+    return data

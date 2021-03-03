@@ -101,6 +101,25 @@ def xilangpage():
         return render_template("xilang.html",data=mapdata)
 
 
+
+# 访问鹤洞闭环页面的路由转发
+@app.route('/hedong',methods=['POST','GET'])
+def hedong():
+    if request.method == 'GET':
+        time = request.args.get('time')     #得到连接中的时间信息
+        mapdata = model.hedong(time)    #由时间得地图上的流量数据
+    if request.method == 'POST':
+        if request.form.get('time')=="dateandtimepoint":#当传回的时间是这个串时说明是地图右边的表单，需要日期和小时拼接成time
+            time = request.form.get('date')+" "+request.form.get('timepoint')
+        else:
+            time = request.form.get('time')
+        mapdata = model.hedong(time)
+    if mapdata['error']==1:
+        return render_template("errorpage.html")
+    else:
+        return render_template("hedong.html",data=mapdata)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
 

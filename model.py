@@ -84,3 +84,13 @@ def yibanyuanchuanbiao_map(time):
     else:
         mapdata = {'error': 1}
     return mapdata
+
+
+def hedong(time):
+    mapdatahd = getdatautils.getyibanyuanchuanbiao_hedong(time)  # 从EXCEL中得到西塱各流量计时流量
+    if mapdatahd['error'] == 0:
+        # 如果没有查询错误就将各个地区的数据合到同一个字典变量中传回给页面
+        mapdata = mapdatahd
+    else:
+        mapdata = {'error': 1}
+    return mapdata
