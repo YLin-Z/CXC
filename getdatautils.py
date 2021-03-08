@@ -4,7 +4,7 @@ def getdongsha_shiliuliang(time):
     if time == ' 0:00':#在右边表单那里没选好
         data = {"error":1}
     else:
-        sheet = pd.read_excel("D:/CXCDATA/dongsha.xls",sheet_name = 1)
+        sheet = pd.read_excel("D:/CXCDATA/dongsha.xls",sheet_name = 0)
         # sheet = pd.read_csv("D:/CXCDATA/dongsha.csv",encoding='utf-8')
         row = sheet[sheet['时间']==time]
         # 时流量 = data.iloc[-1]['东沙时流量']
