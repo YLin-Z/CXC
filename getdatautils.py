@@ -73,6 +73,7 @@ def nanjiaocun_shiliuliang(time):
                     'sll69983071': sll69983071,
                     'error': 0}
             # print(data)
+        #配合Excel结构将日期改成0点，再取全日和最小
         time =time[0:10]
         time= time+" 1:00"
         row = sheet[sheet['时间'] == time]
