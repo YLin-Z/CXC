@@ -42,14 +42,25 @@ def shaluocun_shiliuliang(time):
             sll91830456 = float(format(row.iloc[-1]["Unnamed: 3"], '.2f'))
             sll91830454 = float(format(row.iloc[-1]["Unnamed: 7"], '.2f'))
             sll91830455 = float(format(row.iloc[-1]["Unnamed: 13"], '.2f'))
-            sunsllofshaluocun = sll91830455+sll91830456+sll91830456
             data = {'time': time,
                     'sll91830456': sll91830456,
                     'sll91830454': sll91830454,
                     'sll91830455': sll91830455,
-                    'sunsllofshaluocun': sunsllofshaluocun,
                     'error': 0}
             # print(data)
+        # 配合Excel结构将日期改成0点，再取全日和最小
+        time = time[0:10]
+        time = time + " 0:00"
+        row = sheet[sheet['时间'] == time]
+        if row.empty == 1:
+            data = {"error": 1}
+        else:
+            alldayofshaluocun = float(format(row.iloc[-1]["沙洛全天总流量"], '.2f'))
+            minofshaluocun = float(format(row.iloc[-1]["最小全村时流量"], '.2f'))
+            data.update({
+                'alldayofshaluocun': alldayofshaluocun,
+                'minofshaluocun': minofshaluocun,
+            })
         del sheet
     return data
 
