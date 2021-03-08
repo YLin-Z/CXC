@@ -67,14 +67,10 @@ def nanjiaocun_shiliuliang(time):
             sll91830730 = float(format(row.iloc[-1]["Unnamed: 2"], '.2f'))
             sll91830729 = float(format(row.iloc[-1]["Unnamed: 6"], '.2f'))
             sll69983071 = float(format(row.iloc[-1]["Unnamed: 10"], '.2f'))
-            # alldayofnanjiaocun = float(format(row.iloc[-1]["全日总供水"], '.2f'))
-            # minofnanjiaocun = float(format(row.iloc[-1]["最小时流量"], '.2f'))
             data = {'time': time,
                     'sll91830730': sll91830730,
                     'sll91830729': sll91830729,
                     'sll69983071': sll69983071,
-                    # 'alldayofnanjiaocun': alldayofnanjiaocun,
-                    # 'minofnanjiaocun': minofnanjiaocun,
                     'error': 0}
             # print(data)
         time =time[0:10]
