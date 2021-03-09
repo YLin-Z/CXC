@@ -26,6 +26,19 @@ def getdongsha_shiliuliang(time):
                     'sll69175303':sll69175303,
                     'error':0}
             # print(data)
+        # 配合Excel结构将日期改成0点，再取全日和最小
+        time = time[0:10]
+        time = time + " 0:00"
+        row = sheet[sheet['时间'] == time]
+        if row.empty == 1:
+            data = {"error": 1}
+        else:
+            alldayofdongsha = float(format(row.iloc[-1]["东沙日供水量（加电排站）"], '.2f'))
+            minofdongsha = float(format(row.iloc[-1]["东沙最小流量（加电排站）"], '.2f'))
+            data.update({
+                'alldayofdongsha': alldayofdongsha,
+                'minofdongsha': minofdongsha,
+            })
         del sheet
     return data
 
