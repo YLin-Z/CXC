@@ -140,6 +140,18 @@ def getxilang_shiliuliang(time):
                     'sll3196':sll3196,
                     'error':0}
             # print(data)
+        time = time[0:10]
+        time = time + " 0:00"
+        row = sheet[sheet['时间'] == time]
+        if row.empty == 1:
+            data = {"error": 1}
+        else:
+            alldayofxilang = float(format(row.iloc[-1]["西塱供水量"], '.2f'))
+            minofxilang = float(format(row.iloc[-1]["西塱最小时流量"], '.2f'))
+            data.update({
+                'alldayofxilang': alldayofxilang,
+                'minofxilang': minofxilang,
+            })
         del sheet
     return data
 
