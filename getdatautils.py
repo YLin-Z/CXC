@@ -174,7 +174,7 @@ def getyibanyuanchuanbiao_shiliuliang(time):
         del sheet
     return data
 
-
+#鹤洞
 def getyibanyuanchuanbiao_hedong(time):
     if time == ' 0:00':  # 在右边表单那里没选好
         data = {"error": 1}
@@ -189,5 +189,17 @@ def getyibanyuanchuanbiao_hedong(time):
                     'hedong': hedong,
                     'error': 0}
             # print(data)
+        time = time[0:10]
+        time = time + " 0:00"
+        row = sheet[sheet['时间'] == time]
+        if row.empty == 1:
+            data = {"error": 1}
+        else:
+            alldayofhedong = float(format(row.iloc[-1]["日供水"], '.2f'))
+            minofhedong = float(format(row.iloc[-1]["最小时流量"], '.2f'))
+            data.update({
+                'alldayofhedong': alldayofhedong,
+                'minofhedong': minofhedong,
+            })
         del sheet
     return data
